@@ -1,0 +1,19 @@
+{
+  "categories": [
+    { "id": "1", "name": "Tecnología" },
+    { "id": "2", "name": "Hogar y Cocina" },
+    { "id": "3", "name": "Moda y Ropa" },
+    { "id": "4", "name": "Deportes" }
+  ],
+  "products": [
+    { "id": "1", "name": "Audífonos Bluetooth", "description": "Audífonos inalámbricos con cancelación de ruido activa.", "price": 59.99, "imageUrl": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500", "categoryId": "1", "stock": 15 },
+    { "id": "2", "name": "Teclado Mecánico", "description": "Teclado switch azul con retroiluminación personalizada.", "price": 45.50, "imageUrl": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500", "categoryId": "1", "stock": 10 },
+    { "id": "3", "name": "Cafetera Express", "description": "Cafetera semiautomática de acero inoxidable.", "price": 119.99, "imageUrl": "https://media.istockphoto.com/id/2260716029/es/foto/persona-preparando-caf%C3%A9-con-una-m%C3%A1quina-de-espresso-autom%C3%A1tica.jpg?s=612x612&w=0&k=20&c=b7zV6k6R4fp5ysYL5fWRmaO-LrlkOVcwTbe2hi2nHFI=", "categoryId": "2", "stock": 7 },
+    { "id": "4", "name": "Aspiradora moderna", "description": "Aspiradora inteligente con mapeo láser y conexión Wi-Fi.", "price": 139.99, "imageUrl": "https://png.pngtree.com/png-vector/20251219/ourmid/pngtree-four-modern-vacuum-cleaner-types-on-black-background-png-image_18267406.webp", "categoryId": "2", "stock": 4 },
+    { "id": "5", "name": "Camiseta negra", "description": "Camiseta básica 100% algodón premium, color negro.", "price": 19.99, "imageUrl": "https://img.magnific.com/psd-premium/plantilla-maqueta-negra-psd-camiseta-hombre-maqueta-camiseta-manga-corta-cuello-redondo_851674-135.jpg?semt=ais_hybrid&w=740&q=80", "categoryId": "3", "stock": 40 },
+    { "id": "6", "name": "Chompa Jean", "description": "Chaqueta clásica de jean con botones metálicos.", "price": 49.99, "imageUrl": "https://img.freepik.com/fotos-premium/chaqueta-denim-aislada-sobre-fondo-blanco-camino-recorte-incluido_1077884-47910.jpg?semt=ais_hybrid&w=740&q=80", "categoryId": "3", "stock": 12 },
+    { "id": "7", "name": "Termo Inteligente", "description": "Termo de acero inoxidable con pantalla digital de temperatura en la tapa y con diseños unicos.", "price": 25.00, "imageUrl": "https://img.ele-gate.com/wp-content/uploads/2023/07/VAS.45.06-600x600.jpg", "categoryId": "4", "stock": 25 },
+    { "id": "8", "name": "Tapete de Yoga", "description": "Tapete de alta densidad ideal para pilates y estiramientos.", "price": 29.99, "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_628887-MLU72841268815_112023-O.webp", "categoryId": "4", "stock": 18 },
+    { "id": "9", "name": "Reloj Inteligente", "description": "Reloj inteligente con monitor de ritmo cardíaco y GPS.", "price": 84.99, "imageUrl": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=500", "categoryId": "1", "stock": 9 }
+  ]
+}
