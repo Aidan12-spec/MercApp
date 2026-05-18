@@ -3,23 +3,19 @@ import { onMounted, ref, computed } from 'vue';
 import { useApi } from '../composables/useApi';
 import { useCartStore } from '../stores/cart';
 
-// Conectores de nuestra API simulada
 const { data: products, loading: loadingProducts, error: errorProducts, request: fetchProducts } = useApi();
 const { data: categories, request: fetchCategories } = useApi();
 
 const cartStore = useCartStore();
 
-// Estados reactivos para los filtros de la rúbrica
 const searchQuery = ref('');
 const selectedCategory = ref('');
 
 onMounted(async () => {
-  // Jalamos los datos desde nuestro backend en paralelo de forma asíncrona
   fetchProducts('http://localhost:3000/api/products');
   fetchCategories('http://localhost:3000/api/categories');
 });
 
-// Lógica de filtrado en tiempo real (Reactividad avanzada con Computed)
 const filteredProducts = computed(() => {
   if (!products.value) return [];
   
@@ -57,7 +53,7 @@ const filteredProducts = computed(() => {
     </section>
 
     <div v-if="loadingProducts" class="status-msg">Cargando catálogo de forma segura...</div>
-    <div v-else-if="errorProducts" class="status-msg error">⚠️ Error de conexión: {{ errorProducts }}</div>
+    <div v-else-if="errorProducts" class="status-msg error">Error de conexión: {{ errorProducts }}</div>
 
     <div v-else class="products-grid">
       <div v-for="product in filteredProducts" :key="product.id" class="product-card">

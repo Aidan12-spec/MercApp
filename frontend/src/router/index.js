@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/HomeView.vue'; // Carga inmediata para la página principal
+import HomeView from '../views/HomeView.vue';
 
 const routes = [
   {
@@ -10,18 +10,18 @@ const routes = [
   {
     path: '/product/:id',
     name: 'product-detail',
-    component: () => import('../views/ProductDetail.vue'), // Lazy loading
+    component: () => import('../views/ProductDetail.vue'),
     props: true
   },
   {
     path: '/cart',
     name: 'cart',
-    component: () => import('../views/CartView.vue') // Lazy loading
+    component: () => import('../views/CartView.vue')
   },
   {
     path: '/about',
     name: 'about',
-    component: () => import('../views/AboutView.vue') // Lazy loading
+    component: () => import('../views/AboutView.vue')
   },
   {
     path: '/:pathMatch(.*)*',

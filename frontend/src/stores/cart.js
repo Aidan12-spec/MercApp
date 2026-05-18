@@ -2,10 +2,8 @@ import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 
 export const useCartStore = defineStore('cart', () => {
-  // Cargar datos guardados del LocalStorage si existen, sino empezar vacío
   const items = ref(JSON.parse(localStorage.getItem('mercapp_cart')) || []);
 
-  // Propiedades Computadas (Reactivas)
   const totalProductsCount = computed(() => {
     return items.value.reduce((total, item) => total + item.quantity, 0);
   });
@@ -14,7 +12,6 @@ export const useCartStore = defineStore('cart', () => {
     return items.value.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2);
   });
 
-  // Acciones para alterar el estado
   function addToCart(product) {
     const existingItem = items.value.find(item => item.id === product.id);
     

@@ -7,7 +7,7 @@ const cartStore = useCartStore();
   <div class="app-layout">
     <nav class="navbar">
       <div class="nav-container">
-        <router-link to="/" class="brand">🛒 MercApp</router-link>
+        <router-link to="/" class="brand"> MercApp</router-link>
         <div class="nav-links">
           <router-link to="/">Catálogo</router-link>
           <router-link to="/about">Nosotros</router-link>
@@ -26,7 +26,7 @@ const cartStore = useCartStore();
               <component :is="Component" />
             </template>
             <template #fallback>
-              <div class="loading-fallback">Cargando sección de forma segura...</div>
+              <div class="loading-fallback">Cargando sección...</div>
             </template>
           </Suspense>
         </template>
@@ -36,7 +36,6 @@ const cartStore = useCartStore();
 </template>
 
 <style>
-/* Estilos globales básicos y limpios (Mobile-first sugerido por rúbrica) */
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
 body { background-color: #f8fafc; color: #1e293b; }
 

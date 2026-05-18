@@ -6,10 +6,8 @@ const cartStore = useCartStore();
 const orderPlaced = ref(false);
 
 function handleCheckout() {
-  // 1. Activamos la pantalla de éxito
   orderPlaced.value = true;
   
-  // 2. Limpiamos el carrito de Pinia y del LocalStorage
   cartStore.items = [];
   localStorage.setItem('mercapp_cart', JSON.stringify([]));
 }

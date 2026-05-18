@@ -5,7 +5,6 @@ export function useApi() {
   const loading = ref(false);
   const error = ref(null);
 
-  // El parámetro retries = 1 cumple con el requisito de "reintento simple" de la rúbrica
   const request = async (url, options = {}, retries = 1) => {
     loading.value = true;
     error.value = null;
@@ -19,7 +18,7 @@ export function useApi() {
       return data.value;
     } catch (err) {
       if (retries > 0) {
-        console.warn(`La petición falló. Reintentando... (${retries} intento restante)`);
+        console.warn(`La petición ha fallado. Reintentando... (${retries} intento restante)`);
         return await request(url, options, retries - 1);
       }
       error.value = err.message || 'Error de conexión con el servidor';
