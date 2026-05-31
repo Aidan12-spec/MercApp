@@ -11,13 +11,10 @@ app.use(express.json());
 
 const allowedOrigins = [process.env.FRONTEND_URL, 'http://localhost:5173']; 
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) === -1) {
-      return callback(new Error('CORS: El acceso desde este origen no está permitido por seguridad.'), false);
-    }
-    return callback(null, true);
-  },
+  origin: [
+    'http://localhost:5173', 
+    'https://mercapp-flores.netlify.app'
+  ],
   credentials: true
 }));
 
