@@ -12,8 +12,8 @@ const searchQuery = ref('');
 const selectedCategory = ref('');
 
 onMounted(async () => {
-  fetchProducts('http://localhost:3000/api/products');
-  fetchCategories('http://localhost:3000/api/categories');
+  fetchProducts('https://mercapp-production-f0c7.up.railway.app/api/products');
+  fetchCategories('https://mercapp-production-f0c7.up.railway.app/api/categories');
 });
 
 const filteredProducts = computed(() => {

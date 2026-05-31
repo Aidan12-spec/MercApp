@@ -10,7 +10,7 @@ const cartStore = useCartStore();
 const { data: product, loading, error, request: fetchProduct } = useApi();
 
 onMounted(() => {
-  fetchProduct(`http://localhost:3000/api/products/${route.params.id}`);
+  fetchProduct(`https://mercapp-production-f0c7.up.railway.app/api/products/${route.params.id}`);
 });
 </script>
 
