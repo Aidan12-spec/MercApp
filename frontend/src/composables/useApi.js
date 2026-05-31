@@ -1,5 +1,12 @@
 import { ref } from 'vue';
 
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: import.meta.env.VITE_API_URL 
+});
+export default api;
+
 export function useApi() {
   const data = ref(null);
   const loading = ref(false);

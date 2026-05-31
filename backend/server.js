@@ -1,14 +1,25 @@
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
 const fs = require('fs');
 const path = require('path');
-
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const dataPath = path.join(__dirname, 'data', 'seed.json');
-
-app.use(cors());
+app.use(helmet());
 app.use(express.json());
+
+const allowedOrigins = [process.env.FRONTEND_URL, 'http://localhost:5173']; 
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      return callback(new Error('CORS: El acceso desde este origen no está permitido por seguridad.'), false);
+    }
+    return callback(null, true);
+  },
+  credentials: true
+}));
 
 const readData = () => {
   try {
@@ -21,6 +32,14 @@ const readData = () => {
 const writeData = (data) => {
   fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
 };
+
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'OK',
+    timestamp: new Date(),
+    uptime: process.uptime()
+  });
+});
 
 app.get('/api/categories', (req, res) => {
   const db = readData();
@@ -45,7 +64,7 @@ app.post('/api/products', (req, res) => {
   const { name, description, price, imageUrl, categoryId, stock } = req.body;
 
   if (!name || !price || !categoryId || stock === undefined) {
-    return res.status(400).json({ message: "Error: Faltan campos obligatorios (nombre, precio, categoría o stock)" });
+    return res.status(400).json({ message: "Error: Faltan campos obligatorios" });
   }
   if (Number(price) <= 0) {
     return res.status(400).json({ message: "Error: El precio debe ser mayor a 0" });
@@ -81,10 +100,10 @@ app.put('/api/products/:id', (req, res) => {
   const { name, description, price, imageUrl, categoryId, stock } = req.body;
 
   if (!name || !price || !categoryId || stock === undefined) {
-    return res.status(400).json({ message: "Error: Campos obligatorios vacíos en la actualización" });
+    return res.status(400).json({ message: "Error: Campos obligatorios vacíos" });
   }
   if (Number(price) <= 0 || Number(stock) < 0) {
-    return res.status(400).json({ message: "Error: Valores numéricos inválidos de precio o stock" });
+    return res.status(400).json({ message: "Error: Valores numéricos inválidos" });
   }
 
   db.products[index] = {
@@ -120,5 +139,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(` Servidor de MercApp corriendo en: http://localhost:${PORT}`);
+  console.log(`Servidor de MercApp corriendo en el puerto: ${PORT}`);
 });

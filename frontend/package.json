@@ -4,9 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+  "start": "node server.js",
+  "dev": "nodemon server.js"
   },
   "dependencies": {
     "pinia": "^2.1.7",
